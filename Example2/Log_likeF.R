@@ -16,11 +16,7 @@ LogLikeF <- function(data.mat,para,para2,mu_pr,sigma_pr){
     Ey[i] <- (B.mat[1]+b0[data.mat$Patient[i]]) +(B.mat[2]+b1[data.mat$Patient[i]])*data.mat$X[i]
   }
   
-  Ey2=1/(1+exp(-Ey))
-  p=Ey2*exp(para[3])
-  q=(1-Ey2)*exp(para[3])
-  Log_lkY.Z <- sum(dbeta(data.mat$Y,p,q,log=T))
-
+  Log_lkY.Z <- sum(dnorm(data.mat$Y,Ey,exp(para[3]),log=T))
   Log_lkb0 <- sum(dnorm(b0,0,exp(para[4]),log=T))
   Log_lkb1 <- sum(dnorm(b1,0,exp(para[5]),log=T))
 
