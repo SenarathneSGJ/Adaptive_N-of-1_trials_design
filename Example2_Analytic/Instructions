@@ -1,1 +1,2 @@
-Here, we used the analytic expresion for the log likelihood.
+Here, we used an analytic expression for the log-likelihood function. It will reduce the computational time of the proposed algorithm. 
+However, this is applicable only when the response variable follows a normal distribution.
